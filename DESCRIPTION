@@ -1,0 +1,10 @@
+Package: prodigy
+Title: Might Call It Porgy and Bessel
+Version: 0.0.0.9000
+Authors@R: 
+    person("Michael", "Sumner" , "mdsumner@gmail.com", role = c("aut", "cre"))
+Description: Map projections, for very specific use cases that you probably don't have. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
