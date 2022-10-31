@@ -1,5 +1,5 @@
 source("R/workers.R")
-source("noproj.R")  ## just a mess for now
+source("R/noproj.R")
 m <- do.call(cbind, maps::map(plot = F)[1:2])
 
 centre <- geosphere::randomCoordinates(1)[1:2]
@@ -9,9 +9,10 @@ par(mar = rep(0.1, 4))
 layout(matrix(c(1, 1, 1, 2, 3, 4), byrow = T, ncol = 3))
 plot(rot(m,centre), pch = ".", asp = "")
 
-plot(laea(rot(m, centre)) * 6378137, pch = ".", asp = 1); title("laea", line = -2)
+plot(laea(m, centre = centre), pch = ".", asp = 1); title("laea", line = -2)
 lines(reproj::reproj_xy(m, glue::glue("+proj=laea +lon_0={centre[1]} +lat_0={centre[2]}"), source = "OGC:CRS84"), col = "firebrick")
 text(0, 0, lab = paste0(round(centre, digits = 1), collapse = ", "))
+
 plot(aeqd(rot(m, centre)) * 6378137, pch = ".", asp = 1); title("aeqd", line = -2)
 lines(reproj::reproj_xy(m, glue::glue("+proj=aeqd +lon_0={centre[1]} +lat_0={centre[2]}"), source = "OGC:CRS84"), col = "firebrick")
 
